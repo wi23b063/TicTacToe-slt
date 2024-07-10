@@ -62,7 +62,7 @@ public class TicTacToe {
         }
     }
 
-    private void switchCurrentPlayer(){
+    public void switchCurrentPlayer(){
         if(currentPlayer==player1){
             currentPlayer = player2;
         }else{
@@ -71,4 +71,11 @@ public class TicTacToe {
 
     }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
 }

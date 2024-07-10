@@ -1,4 +1,6 @@
 import org.example.Board;
+import org.example.Player;
+import org.example.TicTacToe;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -175,10 +177,25 @@ public class Tests {
         assertFalse(board.checkDiagonals('O'), "Diagonale sollte nicht mit 'O' gefüllt sein");
     }
 
+    @Test
+    public void testSwitchCurrentPlayer() {
+        Player player1 = new Player('X');
+        Player player2 = new Player('O');
+        TicTacToe ticTacToe = new TicTacToe(player1, player2);
+
+        assertEquals(player1, ticTacToe.getCurrentPlayer());
+
+        ticTacToe.switchCurrentPlayer();
+        assertEquals(player2, ticTacToe.getCurrentPlayer());
+
+        ticTacToe.switchCurrentPlayer();
+        assertEquals(player1, ticTacToe.getCurrentPlayer());
+    }
 
 
 
 
 
 }
+
 

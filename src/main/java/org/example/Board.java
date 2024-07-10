@@ -1,7 +1,7 @@
 package org.example;
 
 public class Board {
-    private char[][] cells;
+    public char[][] cells;
 
     public Board(){
         cells = new char[3][3];
@@ -44,21 +44,21 @@ public class Board {
         return checkDiagonals(symbol);
     }
 
-    private boolean checkRow(int row, char symbol) {
+    public boolean checkRow(int row, char symbol) {
         for (int i = 0; i < cells.length; i++) {
             if (cells[row][i] != symbol) return false;
         }
         return true;
     }
 
-    private boolean checkColumn(int col, char symbol) {
+    public boolean checkColumn(int col, char symbol) {
         for (int i = 0; i < cells.length; i++) {
             if (cells[i][col] != symbol) return false;
         }
         return true;
     }
 
-    private boolean checkDiagonals(char symbol) {
+    public boolean checkDiagonals(char symbol) {
         boolean diagonal1 = true, diagonal2 = true;
         for (int i = 0; i < cells.length; i++) {
             diagonal1 &= (cells[i][i] == symbol);

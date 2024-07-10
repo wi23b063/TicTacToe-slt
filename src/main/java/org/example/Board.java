@@ -67,5 +67,24 @@ public class Board {
         return diagonal1 || diagonal2;
     }
 
+    public void print(){
+        for(char[] row : cells){
+            for(char c: row){
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
+
+    public void clear() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                cells[i][j] = '-';
+            }
+
+        }
+    }
+
+
 
 }

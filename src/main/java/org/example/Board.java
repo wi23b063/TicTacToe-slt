@@ -33,4 +33,39 @@ public class Board {
         }
         return true;
     }
+
+    public boolean checkWin(char symbol) {
+        for (int i = 0; i < cells.length; i++) {
+            if (checkRow(i, symbol)) return true;
+        }
+        for (int i = 0; i < cells.length; i++) {
+            if (checkColumn(i, symbol)) return true;
+        }
+        return checkDiagonals(symbol);
+    }
+
+    private boolean checkRow(int row, char symbol) {
+        for (int i = 0; i < cells.length; i++) {
+            if (cells[row][i] != symbol) return false;
+        }
+        return true;
+    }
+
+    private boolean checkColumn(int col, char symbol) {
+        for (int i = 0; i < cells.length; i++) {
+            if (cells[i][col] != symbol) return false;
+        }
+        return true;
+    }
+
+    private boolean checkDiagonals(char symbol) {
+        boolean diagonal1 = true, diagonal2 = true;
+        for (int i = 0; i < cells.length; i++) {
+            diagonal1 &= (cells[i][i] == symbol);
+            diagonal2 &= (cells[i][cells.length - i - 1] == symbol);
+        }
+        return diagonal1 || diagonal2;
+    }
+
+
 }
